@@ -44,7 +44,7 @@ APPROACHES = {
 gen_ip, embed_ip, reward_ip = None, None, None
 
 ip_list = ["gen_ip.txt", "embed_ip.txt", "reward_ip.txt"]
-ip_base = os.path.expanduser(os.path.join("~", "state_entropy_decode", "src", "sal"))
+ip_base = os.path.expanduser("~/state_entropy_decode/src/sal")
 
 ip = {
     "gen": "",
