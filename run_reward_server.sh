@@ -10,7 +10,7 @@ cd ~/state_entropy_decode
 source ~/.bashrc
 conda activate sedecode
 
-export CONFIG="~/state_entropy_decode/recipes/Llama-3.2-1B-Instruct/beam_search.yaml"
+export CONFIG="recipes/Llama-3.2-1B-Instruct/beam_search.yaml"
 
 
 # 서버 실행
