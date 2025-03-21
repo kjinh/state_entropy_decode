@@ -39,7 +39,7 @@ class Config:
     
     # Output Related Options
     scheduler: Literal["constant", "linear"] = "constant"
-    entropy_hyper: float = 0.01 # Entropy HyperParameter
+    entropy_hyper: float = 0.005 # Entropy HyperParameter
     num_proc: int = None
     push_to_hub: bool = False
     hub_dataset_id: str = None

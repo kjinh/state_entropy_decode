@@ -32,6 +32,7 @@ install_requires = [
     "transformers>=4.47.0",
     "fastapi",
     "hf_transfer",
+    "umap-learn",
 ]
 
 setup(

@@ -4,8 +4,6 @@
 #SBATCH --partition=suma_rtx4090
 #SBATCH --mem=64G
 #SBATCH --time=40:00:00
-#SBATCH --output=logs/reward_server.out
-#SBATCH --error=logs/reward_server.err
 
 # set
 cd /home/mjmps0725/state_entropy_decode

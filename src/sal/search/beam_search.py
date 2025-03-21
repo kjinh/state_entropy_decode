@@ -188,6 +188,9 @@ def _beam_search(batch_of_prompts, config: Config, prm: PRM, ip: dict[str, str])
         if config.entropy_hyper > 0 :
             if config.state_traj == "trajectory" :
                 beams_final_text = [active_beam.current_text for active_beam in active_beams]
+            elif config.state_traj == "traj_w_question" :
+                # ref. score() in reward_models.py
+                beams_final_text = [active_beam.prompt + " " + active_beam.current_text for active_beam in active_beams]
             else :
                 beams_final_text = [active_beam.next_texts[0] for active_beam in active_beams]
             # The answer generated in this step should not be compared with the answer before it => pass the parent 

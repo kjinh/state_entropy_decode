@@ -33,11 +33,11 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # os.environ["TOKENIZERS_PARALLELISM"] = "false"
-os.environ["CUDA_VISIBLE_DEVICES"]= "0"
+#os.environ["CUDA_VISIBLE_DEVICES"]= "0"
 
 logger = logging.getLogger()
-API_KEY = os.environ["OPENAI_API_KEY"]
-client = OpenAI()
+#API_KEY = os.environ["OPENAI_API_KEY"]
+#client = OpenAI()
 
 
 def build_conv(
@@ -119,23 +119,23 @@ class refine_result(BaseModel):
     wrong_check: bool
     refine_step: int
     
-def refine_answer(
-    refine_prompt,
-    prompt,
-    check_answer: str,
-    steps_refine: int
-) -> int:
-    completion = client.beta.chat.completions.parse(
-        model="gpt-4o-2024-11-20",
-        messages=[
-            {"role": "system", "content": refine_prompt.format(prompt=prompt, steps_refine= steps_refine)},
-            {"role": "user", "content": check_answer}
-        ],
-        response_format= refine_result
-    )
-    step_checks = completion.choices[0].message.parsed
-    # print(step_checks, type(step_checks))
-    return -1 if step_checks.wrong_check is False else step_checks.refine_step
+# def refine_answer(
+#     refine_prompt,
+#     prompt,
+#     check_answer: str,
+#     steps_refine: int
+# ) -> int:
+#     completion = client.beta.chat.completions.parse(
+#         model="gpt-4o-2024-11-20",
+#         messages=[
+#             {"role": "system", "content": refine_prompt.format(prompt=prompt, steps_refine= steps_refine)},
+#             {"role": "user", "content": check_answer}
+#         ],
+#         response_format= refine_result
+#     )
+#     step_checks = completion.choices[0].message.parsed
+#     # print(step_checks, type(step_checks))
+#     return -1 if step_checks.wrong_check is False else step_checks.refine_step
     
 
 def generate_k_steps(
