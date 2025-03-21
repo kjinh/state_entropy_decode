@@ -1,5 +1,4 @@
 from .context import assert_equal
-import pytest
 from sympy import Sum, I, Symbol, Integer
 
 a = Symbol('a', real=True)

@@ -19,13 +19,12 @@ from collections import defaultdict
 import torch
 import numpy as np
 from tqdm import tqdm
-from vllm import LLM, SamplingParams
 from transformers import AutoTokenizer
 
 from sal.config import Config
 from sal.models.reward_models import PRM
 
-from .utils import Beam, PBE, RMS, build_conv, generate_k_steps, last, embedding_models, refine_answer
+from .utils import Beam, PBE, RMS, build_conv, generate_k_steps, refine_answer
 
 logger = logging.getLogger()
 logging.getLogger("openai").setLevel(logging.ERROR)

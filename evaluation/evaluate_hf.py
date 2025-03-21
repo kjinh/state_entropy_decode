@@ -5,15 +5,12 @@ from pebble import ProcessPool
 from concurrent.futures import TimeoutError
 from datasets import load_dataset
 from tqdm.auto import tqdm
-import pandas as pd
 from datasets import Dataset
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
 from grader import *
 
 from parser import *
-from utils import load_jsonl
-from python_executor import PythonExecutor
 
 def evaluate(benchmark: str, dataset_id: str, dataset_config: str = None, dataset_split: str = "test", dataset_col: str = "pred", samples: list=None, max_num_samples=None):
     samples = load_dataset(dataset_id, name=dataset_config, split=dataset_split)

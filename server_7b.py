@@ -1,7 +1,6 @@
 import os
-from fastapi import BackgroundTasks, FastAPI, Request
-from fastapi.responses import Response, JSONResponse, StreamingResponse
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import Response, JSONResponse
 from vllm import LLM, SamplingParams
 import uvicorn
 import torch

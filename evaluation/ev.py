@@ -2,13 +2,11 @@ import numpy as np
 from tqdm import tqdm
 from pebble import ProcessPool
 from concurrent.futures import TimeoutError
-from datasets import load_dataset
 from tqdm.auto import tqdm
 
 from parser import *
 from grader import *
 from utils import load_jsonl
-from python_executor import PythonExecutor
 
 import os
 
@@ -17,7 +15,7 @@ import os
 # evaluates the predictions using a `math_equal_process` function in parallel using a `ProcessPool`.
 
 results_paths = ['Llama3.1-8B-PRM-Deepseek-Data_state_step_scheduler_constant_n_4_svd_refine']
-default_path = '/home/mjmps0725/state_entropy_decode/results_0313/sa_0.01_model_RLHFlow'
+default_path = '~/state_entropy_decode/results_0313/sa_0.01_model_RLHFlow'
 print(os.getcwd())
 for result_path in results_paths :
     print(result_path)

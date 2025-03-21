@@ -11,7 +11,6 @@ import regex
 import multiprocessing
 from math import isclose
 from typing import Union
-from collections import defaultdict
 
 from sympy import simplify, N
 from sympy.parsing.sympy_parser import parse_expr
@@ -124,7 +123,7 @@ def math_equal(
     prediction = str(prediction).strip()
 
     ## pmatrix (amps)
-    if "pmatrix" in prediction and not "pmatrix" in reference:
+    if "pmatrix" in prediction and "pmatrix" not in reference:
         reference = str_to_pmatrix(reference)
 
     ## deal with [], (), {}

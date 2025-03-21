@@ -1,5 +1,4 @@
 from .context import assert_equal
-import pytest
 from sympy import Symbol, Rational, UnevaluatedExpr, gcd, igcd, sqrt, pi
 
 x = Symbol('x', real=True)

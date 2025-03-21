@@ -1,8 +1,6 @@
-import os
 from fastapi import FastAPI, Request
 from fastapi.responses import Response, JSONResponse
-from fastapi import FastAPI
-from vllm import LLM, SamplingParams
+from vllm import LLM
 import uvicorn
 import gc
 import torch

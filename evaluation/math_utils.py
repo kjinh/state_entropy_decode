@@ -1,29 +1,7 @@
 import re
-import time
-import os
-import json
-import random
-import string
-from enum import Enum, auto
-from tqdm import tqdm
-from collections import OrderedDict
-import dataclasses
-import pandas as pd
 import timeout_decorator
-import mpmath
 import sympy as sp
 from sympy.parsing.latex import parse_latex
-import sympy as sp
-from sympy import simplify
-from sympy.printing import latex
-from sympy.core.relational import Relational
-from sympy.solvers.solveset import solvify
-from sympy.solvers.inequalities import reduce_inequalities
-from sympy.parsing.sympy_parser import (
-    parse_expr,
-    standard_transformations,
-    implicit_multiplication,
-)
 
 
 def compare_numerical_ans(ans_p, ans_l):
@@ -38,7 +16,7 @@ def compare_numerical_ans(ans_p, ans_l):
             ans_p = float(ans_p)
         if isinstance(ans_l, str):
             ans_l = float(ans_l)
-    except Exception as e:
+    except Exception:
         return False
     return abs(ans_p - float(ans_l)) < 1e-3
 

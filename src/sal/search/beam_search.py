@@ -19,13 +19,12 @@ from collections import defaultdict
 import torch
 import numpy as np
 from tqdm import tqdm
-from vllm import LLM, SamplingParams
 from transformers import AutoTokenizer
 
 from sal.config import Config
 from sal.models.reward_models import PRM
 
-from .utils import Beam, PBE, RMS, build_conv, generate_k_steps, last, embedding_models
+from .utils import Beam, PBE, RMS, build_conv, generate_k_steps
 
 logger = logging.getLogger()
 from sal.utils.score import aggregate_scores
@@ -265,7 +264,9 @@ def beam_search(examples, config: Config, prm: PRM, ip: dict[str, str]):
     beam_results, history_pers = _beam_search(problems, config, prm, ip)
     # print(history_pers)
     import os
-    history_path = '/home/mjmps0725/state_entropy_decode/history/history_01'
+    history_path = '~/state_entropy_decode/history/history_01'
+    history_path = os.path.expanduser(history_path)
+    
     if not os.path.exists(history_path) :
         os.makedirs(history_path)
     file_counts = len(list(os.listdir(history_path)))

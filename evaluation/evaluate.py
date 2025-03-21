@@ -9,8 +9,6 @@ from tqdm.auto import tqdm
 from grader import *
 
 from parser import *
-from utils import load_jsonl
-from python_executor import PythonExecutor
 
 # ORIGINAL CODE
 # def evaluate(data_name, prompt_type, samples: list=None, file_path: str=None, max_num_samples=None, execute=False):

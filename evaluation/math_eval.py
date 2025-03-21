@@ -6,8 +6,7 @@ from vllm import LLM, SamplingParams
 from datetime import datetime
 from tqdm import tqdm
 
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer
 
 from evaluate import evaluate
 from utils import set_seed, load_jsonl, save_jsonl, construct_prompt

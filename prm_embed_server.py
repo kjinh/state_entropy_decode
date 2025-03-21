@@ -1,8 +1,8 @@
-import os, socket
+import os
+import socket
 from fastapi import FastAPI, Request
 from fastapi.responses import Response, JSONResponse
-from fastapi import FastAPI
-from vllm import LLM, SamplingParams
+from vllm import LLM
 import uvicorn
 import gc
 import torch
@@ -12,7 +12,9 @@ node_ip = socket.gethostbyname(socket.gethostname())
 num_gpus = torch.cuda.device_count()
 app = FastAPI()
 
-ip_path = "/home/mjmps0725/state_entropy_decode/src/sal/embed_ip.txt"
+ip_path = "~/state_entropy_decode/src/sal/embed_ip.txt"
+ip_path = os.path.expanduser(ip_path)
+
 with open(ip_path, "w") as f:
     f.write(node_ip)
 print(f"prm embedding server running on: {node_ip}")

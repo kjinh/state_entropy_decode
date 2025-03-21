@@ -1,7 +1,6 @@
-from .context import assert_equal, _Pow, _Add, _Mul
+from .context import assert_equal, _Add, _Mul
 import pytest
-from sympy import Integral, sin, Symbol, Mul, Integer, Pow
-from latex2sympy.latex2sympy2 import latex2sympy as process_sympy
+from sympy import Integral, sin, Symbol
 
 a = Symbol('a', real=True)
 b = Symbol('b', real=True)

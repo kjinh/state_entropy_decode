@@ -1,12 +1,10 @@
-from .context import assert_equal, process_sympy, _Add, _Mul, _Pow
-import pytest
-import hashlib
+from .context import assert_equal, _Add, _Mul, _Pow
 from sympy import (
-    E, I, oo, pi, sqrt, root, Symbol, Add, Mul, Pow, Abs, factorial, log, Eq, Ne, S, Rational, Integer, UnevaluatedExpr,
+    E, I, oo, pi, sqrt, root, Symbol, Add, Mul, Pow, Abs, factorial, log, Eq, Ne, S, Rational, UnevaluatedExpr,
     sin, cos, tan, sinh, cosh, tanh, asin, acos, atan, asinh, acosh, atanh,
     csc, sec, Sum, Product, Limit, Integral, Derivative,
     LessThan, StrictLessThan, GreaterThan, StrictGreaterThan,
-    exp, binomial, Matrix, MatMul, MatAdd,
+    Matrix, MatMul, MatAdd,
     Mod, gcd, lcm, floor, ceiling, Max, Min
 )
 

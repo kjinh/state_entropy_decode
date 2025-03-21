@@ -1,5 +1,4 @@
 from .context import assert_equal, _Add, _Mul, _Pow
-import pytest
 from sympy import binomial, Symbol
 
 x = Symbol('x', real=True)

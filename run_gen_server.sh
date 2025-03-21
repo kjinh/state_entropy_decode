@@ -6,11 +6,11 @@
 #SBATCH --time=40:00:00
 
 # set
-cd /home/mjmps0725/state_entropy_decode
+cd ~/state_entropy_decode
 source ~/.bashrc
 conda activate sedecode
 
-export CONFIG="/home/mjmps0725/state_entropy_decode/recipes/Llama-3.2-1B-Instruct/beam_search.yaml"
+export CONFIG="~/state_entropy_decode/recipes/Llama-3.2-1B-Instruct/beam_search.yaml"
 
 
 # 서버 실행

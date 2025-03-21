@@ -1,6 +1,5 @@
 from .context import assert_equal
-import pytest
-from sympy import Symbol, Rational, Float, Min, sqrt, exp, pi, nsimplify
+from sympy import Symbol, Rational, Min, sqrt, exp, pi, nsimplify
 
 x = Symbol('x', real=True)
 y = Symbol('y', real=True)

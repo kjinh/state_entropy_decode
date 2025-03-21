@@ -1,7 +1,5 @@
 from .context import assert_equal
-import pytest
 from sympy import Symbol, Rational, Mod, sqrt, nsimplify, pi, GoldenRatio
-from sympy.physics.units import hbar
 
 x = Symbol('x', real=True)
 y = Symbol('y', real=True)

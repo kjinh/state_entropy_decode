@@ -1,6 +1,5 @@
 from .context import assert_equal
-import pytest
-from sympy import asinh, Symbol
+from sympy import asinh
 
 # x = Symbol('x', real=True);
 

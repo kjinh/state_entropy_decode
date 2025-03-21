@@ -17,8 +17,6 @@ from itertools import accumulate
 
 import torch
 from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
     PreTrainedModel,
     PreTrainedTokenizer,
 )

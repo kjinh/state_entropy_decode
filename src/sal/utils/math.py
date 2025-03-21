@@ -14,7 +14,6 @@
 # limitations under the License.
 
 import math
-import random
 import signal
 from collections import defaultdict
 from multiprocessing import Manager

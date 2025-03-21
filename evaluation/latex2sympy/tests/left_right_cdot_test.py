@@ -1,5 +1,4 @@
 from .context import assert_equal
-import pytest
 from sympy import sin, Symbol
 
 x = Symbol('x', real=True)

@@ -1,4 +1,4 @@
-from .context import assert_equal, process_sympy
+from .context import process_sympy
 import pytest
 
 

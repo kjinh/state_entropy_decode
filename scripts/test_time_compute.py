@@ -13,11 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# ruff: noqa
+
 import logging
 
 import os
 import torch
-from vllm import LLM
 
 from sal.config import Config
 from sal.models.reward_models import load_prm
@@ -42,9 +43,8 @@ APPROACHES = {
 
 gen_ip, embed_ip, reward_ip = None, None, None
 
-ip_base = "/home/mjmps0725/state_entropy_decode/src/sal"
 ip_list = ["gen_ip.txt", "embed_ip.txt", "reward_ip.txt"]
-
+ip_base = os.path.expanduser(os.path.join("~", "state_entropy_decode", "src", "sal"))
 
 ip = {
     "gen": "",

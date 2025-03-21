@@ -1,4 +1,3 @@
-import json
 
 
 def get_examples():

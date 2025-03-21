@@ -15,17 +15,12 @@
 import copy
 import logging
 import numpy as np
-import copy
 
 from dataclasses import dataclass
-from vllm import LLM, SamplingParams
 
 from pydantic import BaseModel
 from transformers import AutoTokenizer, AutoModel
-from openai import OpenAI
-import torch.nn.functional as F
 import torch
-import os
 import json
 import requests
 import umap
@@ -119,23 +114,24 @@ class refine_result(BaseModel):
     wrong_check: bool
     refine_step: int
     
-# def refine_answer(
-#     refine_prompt,
-#     prompt,
-#     check_answer: str,
-#     steps_refine: int
-# ) -> int:
-#     completion = client.beta.chat.completions.parse(
-#         model="gpt-4o-2024-11-20",
-#         messages=[
-#             {"role": "system", "content": refine_prompt.format(prompt=prompt, steps_refine= steps_refine)},
-#             {"role": "user", "content": check_answer}
-#         ],
-#         response_format= refine_result
-#     )
-#     step_checks = completion.choices[0].message.parsed
-#     # print(step_checks, type(step_checks))
-#     return -1 if step_checks.wrong_check is False else step_checks.refine_step
+def refine_answer(
+    refine_prompt,
+    prompt,
+    check_answer: str,
+    steps_refine: int
+) -> int:
+    # completion = client.beta.chat.completions.parse(
+    #     model="gpt-4o-2024-11-20",
+    #     messages=[
+    #         {"role": "system", "content": refine_prompt.format(prompt=prompt, steps_refine= steps_refine)},
+    #         {"role": "user", "content": check_answer}
+    #     ],
+    #     response_format= refine_result
+    # )
+    # step_checks = completion.choices[0].message.parsed
+    # # print(step_checks, type(step_checks))
+    # return -1 if step_checks.wrong_check is False else step_checks.refine_step
+    pass
     
 
 def generate_k_steps(
@@ -491,7 +487,6 @@ class PBE(object):
         return reward, sa_collections
     def __del__(self) :
         # print(self.replay_buffer)
-        import gc
         del self.replay_buffer, self.tokenizer, self.emb_model
         # gc.collect()
         # torch.cuda.empty_cache()

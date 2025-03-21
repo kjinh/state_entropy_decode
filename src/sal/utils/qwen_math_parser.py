@@ -21,10 +21,9 @@
 
 import multiprocessing
 import re
-from collections import defaultdict
 from functools import lru_cache
 from math import isclose
-from typing import List, Union
+from typing import Union
 
 import regex
 from latex2sympy2 import latex2sympy
@@ -664,7 +663,7 @@ def math_equal(
     prediction = str(prediction).strip()
 
     ## pmatrix (amps)
-    if "pmatrix" in prediction and not "pmatrix" in reference:
+    if "pmatrix" in prediction and "pmatrix" not in reference:
         reference = str_to_pmatrix(reference)
 
     ## deal with [], (), {}

@@ -9,9 +9,9 @@
 
 
 
-cd /home/mjmps0725/state_entropy_decode
+cd ~/state_entropy_decode
 
-export CONFIG="/home/mjmps0725/state_entropy_decode/recipes/Llama-3.2-1B-Instruct/beam_search.yaml"
+export CONFIG="~/state_entropy_decode/recipes/Llama-3.2-1B-Instruct/beam_search.yaml"
 
 source ~/.bashrc
 conda activate sedecode
