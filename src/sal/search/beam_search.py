@@ -264,7 +264,7 @@ def beam_search(examples, config: Config, prm: PRM, ip: dict[str, str]):
     beam_results, history_pers = _beam_search(problems, config, prm, ip)
     # print(history_pers)
     import os
-    history_path = '~/state_entropy_decode/history/history_01'
+    history_path = '~/state_entropy_decode/history/history_0323_step_no_reduction_05'
     history_path = os.path.expanduser(history_path)
     
     if not os.path.exists(history_path) :

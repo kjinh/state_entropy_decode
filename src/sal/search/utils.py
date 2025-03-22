@@ -448,7 +448,7 @@ class PBE(object):
                             break
                 target_buffer = target_buffer_bef
                 # print(target_embeddings_bef)
-                reward_parent, sas = self.calculations(source_parent, target_embeddings, False)
+                reward_parent, sas = self.calculations(source_parent, target_embeddings, True)
                 sa_collections.extend([{'source': nodes[source], 'target': target_buffer, 'similarity': sims} for source, sims in zip(sources, sas)])
                 reward[sources] = reward_parent
                 # for idx, strs in enumerate(self.replay_buffer) :
