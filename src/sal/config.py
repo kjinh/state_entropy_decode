@@ -33,12 +33,12 @@ class Config:
     # prm_path: str = "peiyi9979/math-shepherd-mistral-7b-prm"
     # prm_path: str = "Skywork/Skywork-o1-Open-PRM-Qwen-2.5-1.5B"
     
-    state_traj: Literal["trajectory", "step", "traj_w_question"] = "step" # Whether to use the rationale for the last State created or the entire trackjectory 
+    state_traj: Literal["trajectory", "step", "traj_w_question"] = "traj_w_question" # Whether to use the rationale for the last State created or the entire trackjectory 
     prm_path: str = "RLHFlow/Llama3.1-8B-PRM-Deepseek-Data"
     
     # Output Related Options
     scheduler: Literal["constant", "linear"] = "constant"
-    entropy_hyper: float = 0.05 # Entropy HyperParameter
+    entropy_hyper: float = 0.01 # Entropy HyperParameter
     num_proc: int = None
     push_to_hub: bool = False
     hub_dataset_id: str = None
@@ -80,7 +80,7 @@ class Config:
     steps_refine: int = 5
     
     # Save options:
-    output_dir: str = f'./results_0323/sa_{entropy_hyper}_model_{prm_path}_state_{state_traj}_scheduler_{scheduler}_n_{n}_no_reduction'
+    output_dir: str = f'./results_0325/sa_{entropy_hyper}_model_{prm_path}_state_{state_traj}_scheduler_{scheduler}_n_{n}_reduce'
 
     def __post_init__(self):
         if self.approach == "dvts":

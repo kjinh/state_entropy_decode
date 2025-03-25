@@ -394,6 +394,8 @@ class PBE(object):
     
     def calculations(self, source_embeddings, target_embeddings, checking) :
         b1, b2 = source_embeddings.size(0), target_embeddings.size(0)
+        
+        # Do reduction if checking is set to be False
         output = cal_svd(source_embeddings, target_embeddings, self.device, checking).to(self.device)
         source, target = output[:b1, :], output[b1:, :]
         assert (source.size(0) + target.size(0)) == b1+b2, "Not size matchings"
@@ -424,7 +426,9 @@ class PBE(object):
         return reward.flatten().to(self.device), sim_matrix.tolist()
     
     def __call__(self, nodes, parent_collect):
-        # print(len(self.replay_buffer))
+        """
+        Calculate the reward for each node in the buffer
+        """
         sa_collections = []
         reward = torch.tensor([0.0] * len(nodes)).to(self.device)
         ### Calculate Embedding & Dimension Reduction
@@ -448,7 +452,7 @@ class PBE(object):
                             break
                 target_buffer = target_buffer_bef
                 # print(target_embeddings_bef)
-                reward_parent, sas = self.calculations(source_parent, target_embeddings, True)
+                reward_parent, sas = self.calculations(source_parent, target_embeddings, False)
                 sa_collections.extend([{'source': nodes[source], 'target': target_buffer, 'similarity': sims} for source, sims in zip(sources, sas)])
                 reward[sources] = reward_parent
                 # for idx, strs in enumerate(self.replay_buffer) :

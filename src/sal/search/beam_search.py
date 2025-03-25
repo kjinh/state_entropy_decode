@@ -199,7 +199,14 @@ def _beam_search(batch_of_prompts, config: Config, prm: PRM, ip: dict[str, str])
                     if len(active_beam.history) <= 1:
                         parents = "None"
                     else :
-                        parents = ''.join(active_beam.history[:-1]) if config.state_traj == 'trajectory' else active_beam.history[-2]
+                        
+                        if config.state_traj == 'trajectory' :
+                            parents = ''.join(active_beam.history[:-1])
+                        elif config.state_traj == 'traj_w_question' :
+                            parents = active_beam.prompt + " " + ''.join(active_beam.history[:-1])
+                        else :
+                            parents = active_beam.history[-2] # The parent of the current answer is the answer before it
+
                     if parents not in parents_collect.keys() :
                         parents_collect[parents] = []
                     parents_collect[parents].append(i)
@@ -264,7 +271,7 @@ def beam_search(examples, config: Config, prm: PRM, ip: dict[str, str]):
     beam_results, history_pers = _beam_search(problems, config, prm, ip)
     # print(history_pers)
     import os
-    history_path = '~/state_entropy_decode/history/history_0323_step_no_reduction_05'
+    history_path = '~/state_entropy_decode/history/history_0325_traj_q_reduction_01'
     history_path = os.path.expanduser(history_path)
     
     if not os.path.exists(history_path) :

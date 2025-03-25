@@ -14,8 +14,9 @@ import os
 # paths. It loads the JSON files, parses the ground truth data, extracts predictions, and then
 # evaluates the predictions using a `math_equal_process` function in parallel using a `ProcessPool`.
 
-results_paths = ['Llama3.1-8B-PRM-Deepseek-Data_state_trajectory_scheduler_constant_n_4_svd_refine']
-default_path = '~/state_entropy_decode/results_0322/sa_0.005_model_RLHFlow'
+
+results_paths = ['Llama3.1-8B-PRM-Deepseek-Data_state_step_scheduler_constant_n_4_no_reduction']
+default_path = '~/state_entropy_decode/results_0323/sa_0.01_model_RLHFlow'
 default_path = os.path.expanduser(default_path)
 print(os.getcwd())
 for result_path in results_paths :
